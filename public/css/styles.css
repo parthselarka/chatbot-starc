@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #99d8ff, #6bbcff);
+    width: 100%;
+  }
+  
+  .container {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    height:100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .menu-icon {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .icons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .icon {
+    font-size: 20px;
+    color: white;
+  }
+  
+  .main-content {
+    width: 1860px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #87CEEB;
+    color: white;
+  }
+  
+  .title {
+    font-size: 24px;
+  }
+  
+  .grid-icon {
+    font-size: 24px;
+  }
+  
+  .messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .message {
+    margin: 10px 0;
+    padding: 10px 15px;
+    background-color: white;
+    border-radius: 10px;
+    width: fit-content;
+    max-width: 80%;
+  }
+  
+  .message.bot {
+    background-color: #e0f7fa;
+    display: flex;
+    align-items: center;
+  }
+  
+  .message.bot span {
+    margin-right: 10px;
+  }
+  
+  .message.user {
+    margin-left: auto;
+    background-color: #c8e6c9;
+  }
+  
+  .bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #87CEEB;
+  }
+  
+  .bottom-bar input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+  }
+  
+  .icon-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .icon-container .icon {
+    font-size: 24px;
+    color: white;
+  }
+  
+  #button-add{
+    background-color: transparent;
+    border: none;
+  }
+
+.user-message{
+  margin-left: auto;
+  background-color: rgb(174, 229, 174);
+}
