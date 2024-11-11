@@ -18,7 +18,7 @@ router.post('/chat', async (req, res) => {
 
   try {
     // Pass the conversation history to the controller for ChatGPT response
-    const reply = await chatWithGPT(req);
+    const reply = await chatWithGPT(req, message);
 
     // Send the bot's reply as a response
     res.json({ reply });
