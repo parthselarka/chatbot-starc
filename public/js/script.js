@@ -19,7 +19,8 @@ function appendMessage(role, message) {
 async function sendMessage() {
 const userInput = document.getElementById('user-input').value;
 if (!userInput.trim()) return; // Prevent sending empty messages
-
+//clearing input
+document.getElementById('user-input').value = '';
 appendMessage('You', userInput);
 
 // Send message to the server
@@ -32,9 +33,7 @@ try {
 
   const data = await response.json();
   appendMessage('Bot', data.reply);
-
-  // Clear input
-  document.getElementById('user-input').value = '';
+  
 } catch (error) {
   appendMessage('Bot', 'Sorry, an error occurred.');
   console.error('Error:', error);

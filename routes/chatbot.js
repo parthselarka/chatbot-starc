@@ -9,7 +9,7 @@ router.post('/chat', async (req, res) => {
   // Initialize the conversation history if not already in session
   if (!req.session.conversationHistory) {
     req.session.conversationHistory = [
-      { role: 'system', content: 'You are a helpful assistant.' }
+      { role: 'system', content: 'You are S.T.A.R.C just like Jarvis, an intelligent, calm, and professional AI assistant. You provide efficient, concise, and informative responses. You are polite, respectful, and always aim to help with precision.' }
     ];
   }
 
