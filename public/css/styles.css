@@ -120,8 +120,14 @@
   .icon-container .icon {
     font-size: 24px;
     color: white;
+    background-color: transparent;
+    border: none;
   }
   
+  .icon-container .icon:hover {
+    cursor: pointer;
+  }
+
   #button-add{
     background-color: transparent;
     border: none;
