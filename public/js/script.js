@@ -17,33 +17,50 @@ function appendMessage(role, message) {
 
 // Function to handle sending message
 async function sendMessage() {
-const userInput = document.getElementById('user-input').value;
-if (!userInput.trim()) return; // Prevent sending empty messages
-//clearing input
-document.getElementById('user-input').value = '';
-appendMessage('You', userInput);
+  const userInput = document.getElementById('user-input').value;
+  if (!userInput.trim()) return; // Prevent sending empty messages
 
-// Send message to the server
-try {
-  const response = await fetch('/api/chat', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ message: userInput }),
-  });
-
-  const data = await response.json();
-  appendMessage('Bot', data.reply);
+  // Clear input
+  document.getElementById('user-input').value = '';
   
-} catch (error) {
-  appendMessage('Bot', 'Sorry, an error occurred.');
-  console.error('Error:', error);
-}
+  // Append the user's message
+  appendMessage('You', userInput);
+
+  // Display the typing indicator
+  const typingIndicator = document.createElement('div');
+  typingIndicator.classList.add('message', 'bot-message', 'typing-indicator');
+  typingIndicator.innerHTML = `<div class="message-content bot-content"><strong>S.T.A.R.C:</strong> is typing...</div>`;
+  const messagesContainer = document.getElementById('messages');
+  messagesContainer.appendChild(typingIndicator);
+  messagesContainer.scrollTop = messagesContainer.scrollHeight; // Auto-scroll
+
+  
+  // Send message to the server
+  try {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: userInput }),
+    });
+
+   
+
+    const data = await response.json(); 
+    // Remove the typing indicator and append the bot's response
+    typingIndicator.remove();
+    appendMessage('Bot', data.reply);
+
+  } catch (error) {
+    
+    // Handle errors and remove typing indicator
+    typingIndicator.remove();
+    appendMessage('Bot', 'Sorry, an error occurred.');
+    console.error('Error:', error);
+  }
 }
 
-// Handling 'Enter' key to send message
 document.getElementById('user-input').addEventListener('keypress', function(event) {
-if (event.key === 'Enter') {
-  sendMessage();
-}
-});
-
+  if (event.key === 'Enter') {
+    sendMessage();
+  }
+  });

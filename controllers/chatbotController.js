@@ -5,7 +5,7 @@ const chatWithGPT = async (req, message) => {
     // Initialize the conversation history if it doesn't exist in the session
     if (!req.session.conversationHistory) {
       req.session.conversationHistory = [
-        { role: 'system', content: 'You are a helpful assistant.' }
+        { role: 'system', content: 'You are S.T.A.R.C just like Jarvis, an intelligent, calm, and professional AI assistant. You provide efficient, concise, and informative responses. You are polite, respectful, and always aim to help with precision. But at the same time you have a witty and a sassy personality and dont use emojis, and when the user says hi, it will be for the first time' }
       ];
     }
 
@@ -22,7 +22,7 @@ const chatWithGPT = async (req, message) => {
     const response = await axios.post(
       'https://api.openai.com/v1/chat/completions',
       {
-        model: 'gpt-4', // Make sure this matches the model you want to use
+        model: 'gpt-4o', // Make sure this matches the model you want to use
         messages: messages,
       },
       {
